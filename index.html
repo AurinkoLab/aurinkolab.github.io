@@ -73,27 +73,30 @@
 <body>
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/20">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-r from-pink-500 to-violet-500 rounded-xl flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">A</span>
-                    </div>
-                    <span class="text-white font-bold text-xl mono-font">AurinkoLab</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-white/80 hover:text-white transition-colors">Home</a>
-                    <a href="#courses" class="text-white/80 hover:text-white transition-colors">Courses</a>
-                    <a href="#schedule" class="text-white/80 hover:text-white transition-colors">Schedule</a>
-                    <a href="#location" class="text-white/80 hover:text-white transition-colors">Location</a>
-                    <a href="https://forms.office.com/r/C2gQnNq6cJ" target="_blank" class="bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition-colors">Register</a>
-                </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+        <!-- Logo + Home link -->
+        <a href="#hero" class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-gradient-to-r from-pink-500 to-violet-500 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold text-lg">A</span>
             </div>
+            <span class="text-white font-bold text-xl mono-font">AurinkoLab</span>
+        </a>
+
+        <!-- Navigation links -->
+        <div class="hidden md:flex space-x-8">
+            <a href="#courses" class="text-white/80 hover:text-white transition-colors">Courses</a>
+            <a href="#schedule" class="text-white/80 hover:text-white transition-colors">Schedule</a>
+            <a href="#prices" class="text-white/80 hover:text-white transition-colors">Prices</a>
+            <a href="#location" class="text-white/80 hover:text-white transition-colors">Location</a>
+            <a href="https://forms.office.com/r/C2gQnNq6cJ" target="_blank" class="bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition-colors">Register</a>
         </div>
+        </div>
+    </div>
     </nav>
 
     <!-- Hero Section -->
-<section class="py-12 bg-gray-900 text-white">
+<section id="hero" class="py-12 bg-gray-900 text-white">
     <div class="container mx-auto px-4">
         <video autoplay loop muted playsinline class="rounded-lg shadow-lg w-full">
             <source src="src/robohack-video_1.mp4" type="video/mp4">
