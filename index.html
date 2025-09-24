@@ -97,24 +97,38 @@
     </div>
     </nav>
 
-    <!-- Hero Section -->
+<!-- Hero Section -->
 <div class="relative w-full h-[500px] overflow-hidden">
-  <img src="src/makasiini.jpeg" 
-       alt="Фон"
-       class="absolute top-0 left-0 w-full h-full object-cover object-bottom">
+  <!-- Видео вместо изображения -->
+  <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover">
+    <source src="src/robohack-video_1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
+  <!-- Контент поверх видео -->
   <div class="relative z-10 flex flex-col items-center justify-center h-full gap-4">
-    <h1 class="text-3xl font-semibold tracking-wide text-white bg-gray-400/30 px-6 py-3 rounded-lg">
+    <h1 class="text-3xl font-semibold tracking-wide text-white bg-gray-400/30 px-6 py-3 rounded-lg text-center">
       Create. Innovate. Inspire
     </h1>
 
-    <!-- Sticker / Badge -->
-<a href="#upcoming-events"  
-        class="bg-gray-400/30 text-white font-semibold px-8 py-3 rounded-lg shadow-sm hover:bg-gray-400/30 transition-colors text-xs md:text-">
-        See Upcoming Events
-        </a>
-        </div>
+    <!-- Две кнопки рядом -->
+    <div class="flex gap-4 mt-4">
+      <!-- Прозрачная кнопка -->
+      <a href="#schedule"  
+         class="bg-blue-500/80 text-white font-semibold px-6 py-3 rounded-lg shadow-sm hover:bg-gray-400/50 transition-colors text-xs md:text-sm">
+        Register for Classes
+      </a>
+
+      <!-- Яркая кнопка -->
+      <a href="#upcoming-events"  
+         class="bg-orange-800/80 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-400/50 transition-colors text-xs md:text-sm">
+        Check Upcoming Events
+      </a>
+    </div>
+  </div>
 </div>
+
+
 
 <!-- Upcoming Events Section -->
 <section id="upcoming-events" class="py-20 px-6" style="background: linear-gradient(135deg, #ff8a00, #ffd200);">
@@ -288,25 +302,6 @@
                             Request infromation
                         </a>
                     </div>
-
-                <!-- Course 7 -->
-                <!-- <div class="glass-card rounded-3xl p-8 hover-lift course-hover  flex flex-col justify-between">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6 flex flex-col justify-between">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Robotics with Arduino</h3>
-                    <p class="text-white/70 mb-6">Course teaches you how to design, build, and program robots using Arduino microcontrollers and sensors.</p>
-                    <div class="flex items-center justify-between mb-6"> -->
-                        <!-- <span class="text-2xl font-bold text-white">15€<span class="text-sm font-normal">/session</span></span> -->
-                        <!-- <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 14+</span>
-                    </div>
-                    <a href="#prices" target="_blank" rel="noopener noreferrer" 
-                    class="w-full block bg-gradient-to-r from-red-400 to-pink-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
-                        Register for trial workshop
-                    </a>
-                </div> -->
             </div>
         </div>
     </section>
@@ -454,84 +449,91 @@
     </section>
 
     <!-- Prices Section -->
-    <section id="prices" class="py-20 px-6 bg-black/40">
-    <div class="max-w-7xl mx-auto text-center mb-16">
-        <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">Prices (coding/STEM)</h2>
-        <p class="text-xl text-white/70">Choose the option that fits you best</p>
-    </div>
+<section id="prices" class="py-20 px-6 bg-black/40">
+  <div class="max-w-7xl mx-auto text-center mb-16">
+    <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">Prices</h2>
+    <p class="text-xl text-white/70">Choose the option that fits you best</p>
+  </div>
 
-    <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-        <!-- First Trial Workshop -->
-        <div class="glass-card rounded-3xl p-8 text-center min-h-[400px] flex flex-col justify-between">
-            <h3 class="text-2xl font-bold text-white mb-4">First Trial Workshop</h3>
-            <p class="text-5xl font-extrabold text-blue-400 mb-4">Free</p>
-            <p class="text-white/70 mb-6">
-                Try your first workshop for free<br>
-                Choose any subject<br>
-                Valid for 1 session
-            </p>
-            <a href="https://forms.office.com/r/C2gQnNq6cJ" target="_blank" rel="noopener noreferrer">
-                <button class="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all">
-                    Register
-                </button>
+  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    <!-- First Trial Workshop -->
+
+        <div class="glass-card rounded-3xl p-8 text-center flex flex-col justify-between">
+        <!-- Верх: название -->
+        <div class="mt-4"> <!-- добавлен mt-4 для выравнивания -->
+            <h3 class="text-2xl font-bold text-white mb-2">First Trial Workshop</h3>
+        </div>
+
+        <!-- Средняя зона: цена + описание -->
+        <div class="flex flex-col items-center justify-center py-4">
+            <p class="text-6xl font-extrabold text-blue-400 mb-2">Free</p>
+            <p class="text-lg text-white/60 text-center">Try your first workshop for free</p>
+        </div>
+
+        <!-- Нижняя зона: подписи + кнопка -->
+        <div>
+            <p class="text-white/70 mb-4"></p>
+            <a href="#" target="_blank">
+            <button class="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all">
+                Register
+            </button>
             </a>
         </div>
-
-        <!-- One Workshop -->
-        <div class="glass-card rounded-3xl p-8 text-center min-h-[400px] flex flex-col justify-between">
-        <h3 class="text-2xl font-bold text-white mb-4">One Workshop</h3>
-        <p class="text-5xl font-extrabold text-pink-400 mb-4">20€</p>
-        <p class="text-white/70 mb-6">
-                1 workshop<br>
-                Valid for 1 session
-                </p>
-        <a href="https://buy.stripe.com/8x24gzgGX2KZatx1EUd7q00" target="_blank" rel="noopener noreferrer">
-            <button class="w-full bg-gradient-to-r from-pink-500 to-violet-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all">
-            Choose
-            </button>
-        </a>
         </div>
 
+        <!-- Basic Package -->
+        <div class="glass-card rounded-3xl p-8 text-center flex flex-col justify-between">
+        <div class="mt-4"> <!-- добавлен mt-4 -->
+            <h3 class="text-2xl font-bold text-white mb-2">Basic Package</h3>
+        </div>
 
-        <!-- Basic -->
-        <div class="glass-card rounded-3xl p-8 text-center min-h-[400px] flex flex-col justify-between">
-        <h3 class="text-2xl font-bold text-white mb-4">Basic Package</h3>
-        <p class="text-5xl font-extrabold text-violet-400 mb-4">45€</p>
-        <p class="text-white/70 mb-6">
-                One month<br>
-                Unshareable
-                </p>
-        <a href="https://buy.stripe.com/eVqeVdbmDetHbxB3N2d7q02" target="_blank" rel="noopener noreferrer">
+        <div class="flex flex-col items-center justify-center py-4">
+            <p class="text-6xl font-extrabold text-violet-400 mb-2">60€</p>
+            <p class="text-lg text-white/60 text-center">One month subscription</p>
+        </div>
+
+        <div>
+            <p class="text-white/70 mb-4"></p>
+            <p class="text-white/70 mb-4"></p>
+            <a href="#" target="_blank">
             <button class="w-full bg-gradient-to-r from-violet-500 to-pink-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all">
-            Choose
+                Choose
             </button>
-        </a>
+            </a>
+        </div>
         </div>
 
-            <!-- Community Package -->
-        <div class="relative glass-card rounded-3xl p-8 text-center border-2 border-emerald-500 min-h-[400px] flex flex-col justify-between">
-            <!-- Badge -->
-            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-semibold px-4 py-1 rounded-full shadow-lg">
-                Most Popular
-            </div>
 
-                <h3 class="text-2xl font-bold text-white mb-4 mt-2">Community Package</h3>
-        <p class="text-5xl font-extrabold text-emerald-400 mb-1">25€ / month</p>
-        <p class="text-sm text-white/60 mb-4">School-year subscription – paid monthly until 31.05.2026</p>
+    <!-- Community Package -->
+    <div class="relative glass-card rounded-3xl p-8 text-center border-2 border-emerald-500 flex flex-col justify-between">
+      <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-semibold px-4 py-1 rounded-full shadow-lg">
+        Most Popular
+      </div>
 
-        <p class="text-white/70 mb-6">
-            • Subscription for 1 subject in coding<br>
-            • Free or discounted access to community events
+      <div>
+        <h3 class="text-2xl font-bold text-white mb-2 mt-4">Community Package</h3>
+      </div>
+
+      <div class="flex flex-col items-center justify-center py-4">
+        <p class="text-6xl font-extrabold text-emerald-400 mb-2">225€</p>
+        <p class="text-lg text-white/60 text-center">School-year subscription</p>
+      </div>
+
+      <div>
+        <p class="text-white/70 mb-4">
+           28e / month </br>
+          <!-- • Billed monthly until 31 May 2026 -->
         </p>
-        <a href="https://buy.stripe.com/3cI3cv62jetH3155Vad7q01" target="_blank" rel="noopener noreferrer">
-            <button class="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all">
-                Join
-            </button>
+        <a href="#" target="_blank">
+          <button class="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all">
+            Join
+          </button>
         </a>
-        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        </div>
-    </section>
 
     <!-- Location Section -->
     <section id="location" class="py-20 px-6">
