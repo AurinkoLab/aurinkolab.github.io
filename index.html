@@ -71,11 +71,13 @@
     </style>
 </head>
 <body>
+
+
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/20">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-        <!-- Logo + Home link -->
+        <!-- Logo -->
         <a href="#hero" class="flex items-center space-x-3">
             <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-violet-500 rounded-xl flex items-center justify-center">
             <span class="text-white font-bold text-lg">A</span>
@@ -83,19 +85,62 @@
             <span class="text-white font-bold text-xl mono-font">AurinkoLab</span>
         </a>
 
-        <!-- Navigation links -->
+        <!-- Desktop Nav (hidden on mobile) -->
         <div class="hidden md:flex space-x-8">
             <a href="#courses" class="text-white hover:text-white transition-colors">Courses</a>
             <a href="#schedule" class="text-white hover:text-white transition-colors">Schedule</a>
             <a href="#upcoming-events" class="text-white hover:text-white transition-colors">Upcoming Events</a>
+            <a href="https://espoo.aurinkolab.fi/robohacks" class="text-white hover:text-white transition-colors">RoboHacks</a>
             <a href="#prices" class="text-white hover:text-white transition-colors">Pricing</a>
             <a href="#location" class="text-white hover:text-white transition-colors">Location</a>
             <a href="https://aurinkolab.fi" target="_blank" class="text-white/80 hover:text-white transition-colors">About Us</a>
-            <a href="#prices" target="_blank" class="bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition-colors">Register</a>
+            <a href="#prices" class="bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition-colors">Register</a>
         </div>
+
+        <!-- Mobile Hamburger (hidden on desktop) -->
+        <button id="menu-btn" class="md:hidden flex flex-col justify-between w-8 h-6 focus:outline-none">
+            <span class="block w-8 h-0.5 bg-white transition-all duration-300"></span>
+            <span class="block w-8 h-0.5 bg-white transition-all duration-300"></span>
+            <span class="block w-8 h-0.5 bg-white transition-all duration-300"></span>
+        </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/90 backdrop-blur-lg">
+        <div class="flex flex-col space-y-4 p-6">
+        <a href="#courses" class="text-white hover:text-violet-400">Courses</a>
+        <a href="#schedule" class="text-white hover:text-violet-400">Schedule</a>
+        <a href="#upcoming-events" class="text-white hover:text-violet-400">Upcoming Events</a>
+        <a href="https://espoo.aurinkolab.fi/robohacks" class="text-white hover:text-violet-400">RoboHacks</a>
+        <a href="#prices" class="text-white hover:text-violet-400">Pricing</a>
+        <a href="#location" class="text-white hover:text-violet-400">Location</a>
+        <a href="https://aurinkolab.fi" target="_blank" class="text-white/80 hover:text-white">About Us</a>
+        <a href="#prices" class="bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition-colors text-center">Register</a>
         </div>
     </div>
     </nav>
+
+    <script>
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    const lines = btn.querySelectorAll("span");
+
+    btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+
+        // Animate hamburger → X
+        lines[0].classList.toggle("rotate-45");
+        lines[0].classList.toggle("translate-y-2");
+
+        lines[1].classList.toggle("opacity-0");
+
+        lines[2].classList.toggle("-rotate-45");
+        lines[2].classList.toggle("-translate-y-2");
+    });
+    </script>
+
+
 
     <!-- Hero Section -->
     <div id="hero" class="relative w-full h-[500px] overflow-hidden">
