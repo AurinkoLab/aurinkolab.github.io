@@ -580,7 +580,7 @@
         </div>
     </section>
 
-    <section id="team" class="py-20 px-6" style="background: linear-gradient(135deg, #0d5394, #66b0db);">
+    <section id="team" class="py-20 px-6 hidden" style="background: linear-gradient(135deg, #0d5394, #66b0db);">
     <div class="max-w-7xl mx-auto text-center">
         <h2 class="text-4xl lg:text-5xl font-bold text-white mb-8">Meet the AurinkoLab Team</h2>
         <p class="text-xl text-white/70 max-w-3xl mx-auto mb-16">Our passionate educators and mentors inspire STEM learning and creative problem solving.</p>
@@ -852,5 +852,18 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96d7831b91898d70',t:'MTc1NDkxMjk5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96d7831b91898d70',t:'MTc1NDkxMjk5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+
+<script>
+const navTeamLink = document.querySelector('a[href="#team"]');
+const teamSection = document.getElementById('team');
+
+navTeamLink.addEventListener('click', (e) => {
+    e.preventDefault();           // prevent default jump
+    teamSection.classList.remove('hidden'); // show the section
+    teamSection.scrollIntoView({ behavior: 'smooth' }); // smooth scroll
+});
+</script>
+
+</body>
 </html>
