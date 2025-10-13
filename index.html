@@ -68,79 +68,181 @@
         .course-hover:hover {
             transform: rotateY(5deg) rotateX(5deg);
         }
-    </style>
-</head>
+
+            /* Button Style */
+        .terms-button {
+            background: linear-gradient(135deg, #66b0db, #0d5394);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        .terms-button:hover {
+            opacity: 0.9;
+        }
+        
+        /* Modal Styles */
+        .terms-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+        }
+        .terms-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .terms-modal-content {
+            background: white;
+            margin: 2rem;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+        .terms-close-btn {
+            position: sticky;
+            top: 0;
+            right: 0;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            background: white;
+            padding: 0 10px;
+            z-index: 10;
+            border: none;
+        }
+        .terms-close-btn:hover {
+            color: #000;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Content Styles */
+        .terms-modal-content h1 {
+            color: #0d5394;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .terms-modal-content h2 {
+            color: #0d5394;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .terms-modal-content h3 {
+            color: #66b0db;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .terms-modal-content p {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        .terms-modal-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .terms-modal-content li {
+            margin-bottom: 0.5rem;
+        }
+        </style>
+    </head>
 <body>
 
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-        <!-- Logo -->
-        <a href="#hero" class="flex items-center space-x-3">
-            <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-violet-500 rounded-xl flex items-center justify-center">
-            <span class="text-white font-bold text-lg">A</span>
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-violet-500 rounded-xl flex items-center justify-center">
+                <span class="text-white font-bold text-lg">A</span>
+                </div>
+                <span class="text-white font-bold text-xl mono-font">AurinkoLab</span>
+            </a>
+
+            <!-- Desktop Nav (hidden on mobile) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#courses" class="text-white hover:text-white transition-colors">Courses</a>
+                <a href="#schedule" class="text-white hover:text-white transition-colors">Schedule</a>
+                <a href="#upcoming-events" class="text-white hover:text-white transition-colors">Upcoming Events</a>
+                <a href="https://espoo.aurinkolab.fi/robohacks" class="text-white hover:text-white transition-colors">RoboHacks</a>
+                <a href="#team" class="text-white hover:text-white transition-colors">Team</a>
+                <a href="#location" class="text-white hover:text-white transition-colors">Location</a>
+                <a href="https://aurinkolab.fi" target="_blank" class="text-white/80 hover:text-white transition-colors">About Us</a>
+                <a href="#courses" class="bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition-colors">Register</a>
+            </div
+
+            <!-- Mobile Hamburger (hidden on desktop) -->
+            <button id="menu-btn" class="md:hidden flex flex-col justify-between w-8 h-6 focus:outline-none">
+                <span class="block w-8 h-0.5 bg-white transition-all duration-300"></span>
+                <span class="block w-8 h-0.5 bg-white transition-all duration-300"></span>
+                <span class="block w-8 h-0.5 bg-white transition-all duration-300"></span>
+            </button>
             </div>
-            <span class="text-white font-bold text-xl mono-font">AurinkoLab</span>
-        </a>
-
-        <!-- Desktop Nav (hidden on mobile) -->
-        <div class="hidden md:flex space-x-8">
-            <a href="#courses" class="text-white hover:text-white transition-colors">Courses</a>
-            <a href="#schedule" class="text-white hover:text-white transition-colors">Schedule</a>
-            <a href="#upcoming-events" class="text-white hover:text-white transition-colors">Upcoming Events</a>
-            <a href="https://espoo.aurinkolab.fi/robohacks" class="text-white hover:text-white transition-colors">RoboHacks</a>
-            <a href="#team" class="text-white hover:text-white transition-colors">Team</a>
-            <a href="#location" class="text-white hover:text-white transition-colors">Location</a>
-            <a href="https://aurinkolab.fi" target="_blank" class="text-white/80 hover:text-white transition-colors">About Us</a>
-            <a href="#courses" class="bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition-colors">Register</a>
-        </div
-
-        <!-- Mobile Hamburger (hidden on desktop) -->
-        <button id="menu-btn" class="md:hidden flex flex-col justify-between w-8 h-6 focus:outline-none">
-            <span class="block w-8 h-0.5 bg-white transition-all duration-300"></span>
-            <span class="block w-8 h-0.5 bg-white transition-all duration-300"></span>
-            <span class="block w-8 h-0.5 bg-white transition-all duration-300"></span>
-        </button>
         </div>
-    </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-black/90 backdrop-blur-lg">
-        <div class="flex flex-col space-y-4 p-6">
-        <a href="#courses" class="text-white hover:text-violet-400">Courses</a>
-        <a href="#schedule" class="text-white hover:text-violet-400">Schedule</a>
-        <a href="#upcoming-events" class="text-white hover:text-violet-400">Upcoming Events</a>
-        <a href="https://espoo.aurinkolab.fi/robohacks" class="text-white hover:text-violet-400">RoboHacks</a>
-        <a href="#prices" class="text-white hover:text-violet-400">Pricing</a>
-        <a href="#location" class="text-white hover:text-violet-400">Location</a>
-        <a href="https://aurinkolab.fi" target="_blank" class="text-white/80 hover:text-white">About Us</a>
-        <a href="#prices" class="bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition-colors text-center">Register</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90 backdrop-blur-lg">
+            <div class="flex flex-col space-y-4 p-6">
+            <a href="#courses" class="text-white hover:text-violet-400">Courses</a>
+            <a href="#schedule" class="text-white hover:text-violet-400">Schedule</a>
+            <a href="#upcoming-events" class="text-white hover:text-violet-400">Upcoming Events</a>
+            <a href="https://espoo.aurinkolab.fi/robohacks" class="text-white hover:text-violet-400">RoboHacks</a>
+            <a href="#prices" class="text-white hover:text-violet-400">Pricing</a>
+            <a href="#location" class="text-white hover:text-violet-400">Location</a>
+            <a href="https://aurinkolab.fi" target="_blank" class="text-white/80 hover:text-white">About Us</a>
+            <a href="#prices" class="bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition-colors text-center">Register</a>
+            </div>
         </div>
-    </div>
     </nav>
 
     <script>
-    const btn = document.getElementById("menu-btn");
-    const menu = document.getElementById("mobile-menu");
-    const lines = btn.querySelectorAll("span");
+        const btn = document.getElementById("menu-btn");
+        const menu = document.getElementById("mobile-menu");
+        const lines = btn.querySelectorAll("span");
 
-    btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
 
-        // Animate hamburger → X
-        lines[0].classList.toggle("rotate-45");
-        lines[0].classList.toggle("translate-y-2");
+            // Animate hamburger → X
+            lines[0].classList.toggle("rotate-45");
+            lines[0].classList.toggle("translate-y-2");
 
-        lines[1].classList.toggle("opacity-0");
+            lines[1].classList.toggle("opacity-0");
 
-        lines[2].classList.toggle("-rotate-45");
-        lines[2].classList.toggle("-translate-y-2");
-    });
+            lines[2].classList.toggle("-rotate-45");
+            lines[2].classList.toggle("-translate-y-2");
+        });
     </script>
-
-
 
     <!-- Hero Section -->
     <div id="hero" class="relative w-full h-[500px] overflow-hidden">
@@ -291,236 +393,318 @@
                 </div>
             </div>
 
-            <!-- Course: StemLab with Lecturer (Age 7–10) -->
-            <div id="stem" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
-                <div class="flex flex-col items-center text-center mb-4">
-                    <img src="src/tatiana.png" alt="Tatiana Surovtsova" 
-                        class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
-                    <h4 class="text-white font-bold text-lg">Tatiana Surovtsova</h4>
-                    <p class="text-white/80 text-sm">PhD in Computer Science | STEM Mentor | Volunteer IT Educator</p>
-                </div>
-                <div class="border-t border-white/30 my-4 w-full"></div>
-                <h3 class="text-2xl font-bold text-white text-center mb-2">StemLab</h3>
-                <p class="text-white/70 text-center mb-4">Hands-on experiments with electricity, motion, and engineering for young scientists.</p>
-                <p class="text-white/70 text-center mb-4">📍AurinkoLab Course</p>
-                <div class="flex items-center justify-between mb-4">
-                    <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 7–10</span>
-                    <span class="text-white font-semibold">45€ / 4 workshops</span>
-                </div>
-                <div class="flex gap-4">
-                    <a href="https://forms.office.com/r/C2gQnNq6cJ" target="_blank" 
-                    class="w-1/2 block bg-gradient-to-r from-lightblue-400 to-pink-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
-                        Register for Trial
-                    </a>
-                    <a href="https://buy.stripe.com/cNi4gzgGXadrgRV3N2d7q0e" target="_blank" 
-                    class="w-1/2 block bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
-                        Subscribe
-                    </a>
-                </div>
-            </div>
-
-            <!-- Course: Family Math Club (Age 7+ and Parents) -->
-            <div id="family-math-club" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
-                <div class="flex flex-col items-center text-center mb-4">
-                    <img src="src/natalia.jpg" alt="Natalia Gatanova" 
-                        class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
-                    <h4 class="text-white font-bold text-lg">Natalia Gatanova</h4>
-                    <p class="text-white/80 text-sm">For 30+ years helps kids fall in love with learning and see the beauty in math</p>
-                </div>
-                <div class="border-t border-white/30 my-4 w-full"></div>
-                <h3 class="text-2xl font-bold text-white text-center mb-2">Family Math Club</h3>
-                <p class="text-white/70 text-center mb-4">
-                    In our Family Club we solve puzzles, go on quests, and explore myths—from Odysseus to the Kalevala. 
-                    Math comes alive, and skills stick. We meet every Friday for a family event—everyone’s welcome!
-                </p>
-                <div class="flex items-center justify-between mb-4">
-                    <span class="glass-card px-3 py-1 rounded-full text-sm text-white">7+ and Parents</span>
-                    <span class="text-white font-semibold">Free</span>
-                </div>
-                <div class="flex justify-center mt-4">
-                    <a href="https://form.eo-space.com" target="_blank" 
-                    class="bg-gradient-to-r from-blue-400 to-putple-800 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-lg transition-all text-center">
-                        Registration
-                    </a>
-                </div>
-            </div>
-
-            <!-- Course: Olympiad Maths (Age 10+) -->
-            <div id="math" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
-                <div class="flex flex-col items-center text-center mb-4">
-                    <img src="src/Evgenia.jpeg" alt="Evgenia Levina" 
-                        class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
-                    <h4 class="text-white font-bold text-lg">Evgenia Levina</h4>
-                    <p class="text-white/80 text-sm">Math & Olympiad | Electronics & Microelectronics</p>
-                </div>
-                <div class="border-t border-white/30 my-4 w-full"></div>
-                <h3 class="text-2xl font-bold text-white text-center mb-2">Olympiad Maths</h3>
-                <p class="text-white/70 text-center mb-4">Challenge yourself with advanced mathematical concepts and competitive problem-solving techniques.</p>
-                <p class="text-white/70 text-center mb-4">📍AurinkoLab Course</p>
-                <div class="flex items-center justify-between mb-4">
-                    <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 10+</span>
-                    <span class="text-white font-semibold">45€ / month</span>
-                </div>
-                <div class="flex gap-4">
-                    <a href="https://forms.office.com/r/C2gQnNq6cJ" target="_blank" 
-                    class="w-1/2 block bg-gradient-to-r from-lightblue-400 to-pink-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
-                        Register for Trial
-                    </a>
-                    <a href="https://buy.stripe.com/cNi8wPduL1GVcBFerGd7q0c" target="_blank" 
-                    class="w-1/2 block bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
-                        Subscribe
-                    </a>
-                </div>
-            </div>
-
-            <!-- Course: Engineering: Electrical Vehicles (Age 11+) -->
-            <div id="engineering" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
-                <div class="flex flex-col items-center text-center mb-4">
-                    <img src="src/pavel.png" alt="Pavel Poppel" 
-                        class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
-                    <h4 class="text-white font-bold text-lg">Pavel Poppel</h4>
-                    <p class="text-white/80 text-sm">Engineering Vehicles Instructor | Age 11+</p>
-                </div>
-                <div class="border-t border-white/30 my-4 w-full"></div>
-                <h3 class="text-2xl font-bold text-white text-center mb-2">Engineering: Electrical Vehicles</h3>
-                <p class="text-white/70 text-center mb-4">Design and build innovative vehicles powered by renewable energy sources.</p>
-                <p class="text-white/70 text-center mb-4">📍AurinkoLab Course</p>
-                <div class="flex items-center justify-between mb-4">
-                    <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 11+</span>
-                    <span class="text-white font-semibold">60€ / month</span>
-                </div>
-                <div class="flex gap-4">
-                    <a href="https://forms.office.com/r/C2gQnNq6cJ" target="_blank" 
-                    class="w-1/2 block bg-gradient-to-r from-lightblue-400 to-pink-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
-                        Register for Trial
-                    </a>
-                    <a href="https://buy.stripe.com/7sY28r8aretH7hlfvKd7q0d" target="_blank" 
-                    class="w-1/2 block bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
-                        Subscribe
-                    </a>
-                </div>
-            </div>
-
-            <!-- Course: Coding: Python (Age 13+) -->
-            <div class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
-                <div class="flex flex-col items-center text-center mb-4">
-                    <img src="src/tatiana.png" alt="Tatiana Surovtsova" 
-                        class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
-                    <h4 class="text-white font-bold text-lg">Tatiana Surovtsova</h4>
-                    <p class="text-white/80 text-sm">PhD in Computer Science | STEM Mentor | Volunteer IT Educator</p>
-                </div>
-                <div class="border-t border-white/30 my-4 w-full"></div>
-                <h3 class="text-2xl font-bold text-white text-center mb-2">Coding: Python</h3>
-                <p class="text-white/70 text-center mb-4">Master the fundamentals of coding with Python through exciting projects and real-world applications.</p>
-                <p class="text-white/70 text-center mb-4">📍AurinkoLab Course</p>
-                <div class="flex items-center justify-between mb-4">
-                    <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 13+</span>
-                    <span class="text-white font-semibold">45€ / month</span>
-                </div>
-                <div class="flex gap-4">
-                    <a href="https://forms.office.com/r/C2gQnNq6cJ" target="_blank" 
-                    class="w-1/2 block bg-gradient-to-r from-lightblue-400 to-pink-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
-                        Register for Trial
-                    </a>
-                    <a href="https://buy.stripe.com/cNi8wPduL1GVcBFerGd7q0c" target="_blank" 
-                    class="w-1/2 block bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
-                        Subscribe
-                    </a>
-                </div>
-            </div>
-
-            <!-- Course: CreativeLab: Screenwriting & Filmmaking (Age 15+) -->
-            <div id="creativelab" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
-                <div class="flex flex-col md:flex-row md:justify-center md:space-x-8 items-center text-center mb-4">
-                    <div class="flex flex-col items-center mb-4 md:mb-0">
-                        <img src="src/mikhail.jpg" alt="Mikhail Durnenkov" class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-1">
-                        <h4 class="text-white font-bold text-lg">Mikhail Durnenkov</h4>
-                        <p class="text-white/80 text-sm">Art Director</p>
+                <!-- Course: StemLab with Lecturer (Age 7–10) -->
+                <div id="stem" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
+                    <div class="flex flex-col items-center text-center mb-4">
+                        <img src="src/tatiana.png" alt="Tatiana Surovtsova" 
+                            class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
+                        <h4 class="text-white font-bold text-lg">Tatiana Surovtsova</h4>
+                        <p class="text-white/80 text-sm">PhD in Computer Science | STEM Mentor | Volunteer IT Educator</p>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <img src="src/sasha.png" alt="Alexandra Dunaeva" class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-1">
-                        <h4 class="text-white font-bold text-lg">Alexandra Dunaeva</h4>
-                        <p class="text-white/80 text-sm">Theater Teacher</p>
+                    <div class="border-t border-white/30 my-4 w-full"></div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-2">StemLab</h3>
+                    <p class="text-white/70 text-center mb-4">Hands-on experiments with electricity, motion, and engineering for young scientists.</p>
+                    <p class="text-white/70 text-center mb-4">📍AurinkoLab Course</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 7–10</span>
+                        <span class="text-white font-semibold">45€ / 4 workshops</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://forms.office.com/r/C2gQnNq6cJ" target="_blank" 
+                        class="w-1/2 block bg-gradient-to-r from-lightblue-400 to-pink-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
+                            Register for Trial
+                        </a>
+                        <a href="https://buy.stripe.com/cNi4gzgGXadrgRV3N2d7q0e" target="_blank" 
+                        class="w-1/2 block bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
+                            Subscribe
+                        </a>
                     </div>
                 </div>
-                <div class="border-t border-white/30 my-4 w-full"></div>
-                <h3 class="text-2xl font-bold text-white text-center mb-2">CreativeLab: Screenwriting & Filmmaking</h3>
-                <p class="text-white/70 text-center mb-4">
-                    Learn the art of storytelling, screenwriting, and filmmaking from industry professionals. Create your own short films, develop scripts, and collaborate on cinematic projects.
+
+                <!-- Course: Family Math Club (Age 7+ and Parents) -->
+                <div id="family-math-club" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
+                    <div class="flex flex-col items-center text-center mb-4">
+                        <img src="src/natalia.jpg" alt="Natalia Gatanova" 
+                            class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
+                        <h4 class="text-white font-bold text-lg">Natalia Gatanova</h4>
+                        <p class="text-white/80 text-sm">For 30+ years helps kids fall in love with learning and see the beauty in math</p>
+                    </div>
+                    <div class="border-t border-white/30 my-4 w-full"></div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-2">Family Math Club</h3>
+                    <p class="text-white/70 text-center mb-4">
+                        In our Family Club we solve puzzles, go on quests, and explore myths—from Odysseus to the Kalevala. 
+                        Math comes alive, and skills stick. We meet every Friday for a family event—everyone’s welcome!
+                    </p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="glass-card px-3 py-1 rounded-full text-sm text-white">7+ and Parents</span>
+                        <span class="text-white font-semibold">Free</span>
+                    </div>
+                    <div class="flex justify-center mt-4">
+                        <a href="https://form.eo-space.com" target="_blank" 
+                        class="bg-gradient-to-r from-blue-400 to-putple-800 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-lg transition-all text-center">
+                            Registration
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course: Olympiad Maths (Age 10+) -->
+                <div id="math" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
+                    <div class="flex flex-col items-center text-center mb-4">
+                        <img src="src/Evgenia.jpeg" alt="Evgenia Levina" 
+                            class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
+                        <h4 class="text-white font-bold text-lg">Evgenia Levina</h4>
+                        <p class="text-white/80 text-sm">Math & Olympiad | Electronics & Microelectronics</p>
+                    </div>
+                    <div class="border-t border-white/30 my-4 w-full"></div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-2">Olympiad Maths</h3>
+                    <p class="text-white/70 text-center mb-4">Challenge yourself with advanced mathematical concepts and competitive problem-solving techniques.</p>
+                    <p class="text-white/70 text-center mb-4">📍AurinkoLab Course</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 10+</span>
+                        <span class="text-white font-semibold">45€ / month</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://forms.office.com/r/C2gQnNq6cJ" target="_blank" 
+                        class="w-1/2 block bg-gradient-to-r from-lightblue-400 to-pink-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
+                            Register for Trial
+                        </a>
+                        <a href="https://buy.stripe.com/cNi8wPduL1GVcBFerGd7q0c" target="_blank" 
+                        class="w-1/2 block bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
+                            Subscribe
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course: Engineering: Electrical Vehicles (Age 11+) -->
+                <div id="engineering" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
+                    <div class="flex flex-col items-center text-center mb-4">
+                        <img src="src/pavel.png" alt="Pavel Poppel" 
+                            class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
+                        <h4 class="text-white font-bold text-lg">Pavel Poppel</h4>
+                        <p class="text-white/80 text-sm">Engineering Vehicles Instructor | Age 11+</p>
+                    </div>
+                    <div class="border-t border-white/30 my-4 w-full"></div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-2">Engineering: Electrical Vehicles</h3>
+                    <p class="text-white/70 text-center mb-4">Design and build innovative vehicles powered by renewable energy sources.</p>
+                    <p class="text-white/70 text-center mb-4">📍AurinkoLab Course</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 11+</span>
+                        <span class="text-white font-semibold">60€ / month</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://forms.office.com/r/C2gQnNq6cJ" target="_blank" 
+                        class="w-1/2 block bg-gradient-to-r from-lightblue-400 to-pink-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
+                            Register for Trial
+                        </a>
+                        <a href="https://buy.stripe.com/7sY28r8aretH7hlfvKd7q0d" target="_blank" 
+                        class="w-1/2 block bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
+                            Subscribe
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course: Coding: Python (Age 13+) -->
+                <div class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
+                    <div class="flex flex-col items-center text-center mb-4">
+                        <img src="src/tatiana.png" alt="Tatiana Surovtsova" 
+                            class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
+                        <h4 class="text-white font-bold text-lg">Tatiana Surovtsova</h4>
+                        <p class="text-white/80 text-sm">PhD in Computer Science | STEM Mentor | Volunteer IT Educator</p>
+                    </div>
+                    <div class="border-t border-white/30 my-4 w-full"></div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-2">Coding: Python</h3>
+                    <p class="text-white/70 text-center mb-4">Master the fundamentals of coding with Python through exciting projects and real-world applications.</p>
+                    <p class="text-white/70 text-center mb-4">📍AurinkoLab Course</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 13+</span>
+                        <span class="text-white font-semibold">45€ / month</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://forms.office.com/r/C2gQnNq6cJ" target="_blank" 
+                        class="w-1/2 block bg-gradient-to-r from-lightblue-400 to-pink-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
+                            Register for Trial
+                        </a>
+                        <a href="https://buy.stripe.com/cNi8wPduL1GVcBFerGd7q0c" target="_blank" 
+                        class="w-1/2 block bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
+                            Subscribe
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course: CreativeLab: Screenwriting & Filmmaking (Age 15+) -->
+                <div id="creativelab" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
+                    <div class="flex flex-col md:flex-row md:justify-center md:space-x-8 items-center text-center mb-4">
+                        <div class="flex flex-col items-center mb-4 md:mb-0">
+                            <img src="src/mikhail.jpg" alt="Mikhail Durnenkov" class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-1">
+                            <h4 class="text-white font-bold text-lg">Mikhail Durnenkov</h4>
+                            <p class="text-white/80 text-sm">Art Director</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="src/sasha.png" alt="Alexandra Dunaeva" class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-1">
+                            <h4 class="text-white font-bold text-lg">Alexandra Dunaeva</h4>
+                            <p class="text-white/80 text-sm">Theater Teacher</p>
+                        </div>
+                    </div>
+                    <div class="border-t border-white/30 my-4 w-full"></div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-2">CreativeLab: Screenwriting & Filmmaking</h3>
+                    <p class="text-white/70 text-center mb-4">
+                        Learn the art of storytelling, screenwriting, and filmmaking from industry professionals. Create your own short films, develop scripts, and collaborate on cinematic projects.
+                    </p>
+                    <p class="text-white/70 text-center mb-4">📍InterLang Course</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 15+</span>
+                    </div>
+                    <div class="flex justify-center mt-4">
+                        <a href="https://creativelab-helsinki.github.io/" target="_blank" 
+                        class="bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
+                            About course
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course: CinemaTalks (Age 15+) -->
+                <div id="cinematalks" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
+                    <div class="flex flex-col items-center text-center mb-4">
+                        <img src="src/ksenia.jpg" alt="Ksenia Peretrukhina" class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
+                        <h4 class="text-white font-bold text-lg">Ksenia Peretrukhina</h4>
+                        <p class="text-white/80 text-sm">Contemporary Artist</p>
+                    </div>
+                    <div class="border-t border-white/30 my-4 w-full"></div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-2">CinemaTalks</h3>
+                    <p class="text-white/70 text-center mb-4">
+                        Explore the art of cinema through guided discussions, critical analysis, and interactive sessions. Learn to appreciate filmmaking techniques and storytelling in a collaborative environment.
+                    </p>
+                    <p class="text-white/70 text-center mb-4">📍organised with InterLang</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 15+</span>
+                    </div>
+                    <div class="flex justify-center mt-4">
+                        <a href="https://creativelab-helsinki.github.io/cinematalks" target="_blank" 
+                        class="bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
+                            About Lectures
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course: Horizons Talks -->
+                <div id="horizons" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
+                    <!-- Lecturer Info -->
+                    <div class="flex flex-col items-center text-center mb-4">
+                        <img src="src/frankie.png" alt="Frankie" class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
+                        <h4 class="text-white font-bold text-lg">Frankie</h4>
+                        <p class="text-white/80 text-sm">History of Arts Educator</p>
+                    </div>
+
+                    <!-- Separator -->
+                    <div class="border-t border-white/30 my-4 w-full"></div>
+
+                    <!-- Course Title & Description -->
+                    <h3 class="text-2xl font-bold text-white text-center mb-2">Horizons Talks: Art History & Discussion</h3>
+                    <p class="text-white/70 text-center mb-4">
+                        Dive into the world of art history with guided discussions, analysis, and interactive sessions. Explore masterpieces, cultural contexts, and develop a deeper appreciation of art.
+                    </p>
+                    <p class="text-white/70 text-center mb-4">📍organised with InterLang</p>
+
+                    <!-- Age & Price Info -->
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 18+</span>
+                        <!-- <span class="text-white font-semibold">20€ / lecture</span> -->
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="flex justify-center mt-4">
+                        <a href="https://interlang.fi" target="_blank" 
+                        class="bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 px-6 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
+                            About Lectures
+                        </a>
+                    </div>
+                </div>
+
+                </div> <!-- End of grid -->
+            </div> <!-- End of max-w-7xl container -->
+            <button onclick="openTermsModal()" class="terms-button">
+            View Terms & Conditions
+        </button>
+
+        </section> <!-- End of Courses Section -->
+
+
+
+        <div id="termsModal" class="terms-modal" onclick="closeTermsModalOnOutside(event)">
+            <div class="terms-modal-content">
+                <button class="terms-close-btn" onclick="closeTermsModal()">&times;</button>
+
+                <h1>TERMS OF SERVICE AGREEMENT</h1>
+                <h2 style="text-align: center; color: #66b0db; margin-bottom: 2rem;">Recreational Services Provision</h2>
+                <p style="text-align: center; font-weight: bold;">AurinkoLab ry<br>Helsinki, Finland</p>
+                <hr style="margin: 2rem 0; border: 1px solid #ccc;">
+                <h2>1. GENERAL PROVISIONS</h2>
+                <p><strong>1.1.</strong> This Terms of Service Agreement (hereinafter referred to as the "Agreement") is an official public offer by the non-profit organization <strong>AurinkoLab ry</strong> (hereinafter referred to as the "Service Provider") to enter into an agreement for the provision of recreational services on the terms set forth below.</p>
+                <p><strong>1.2.</strong> Acceptance of this offer is the Participant's attendance of classes and/or payment for the Service Provider's services.</p>
+                <p><strong>1.3.</strong> A Participant (hereinafter referred to as the "Participant") is an individual who has accepted the terms of this Agreement by performing the actions specified in clause 1.2.</p>
+                <p><strong>1.4. By attending classes, the Participant automatically agrees to all terms of this Agreement.</strong></p>
+                <h2>2. SUBJECT OF THE AGREEMENT</h2>
+                <p><strong>2.1.</strong> The Service Provider undertakes to provide the Participant with recreational services in the form of group/individual classes (clubs, workshops, sections, etc.), and the Participant undertakes to pay for these services in the manner and on the terms provided by this Agreement.</p>
+                <p><strong>2.2.</strong> The specific list of services, class schedule, and pricing are determined by the Service Provider and published on the organization's website/informational materials.</p>
+                <h2>3. PAYMENT TERMS</h2>
+                <p><strong>3.1.</strong> Payment for services is made <strong>by prepayment method</strong> based on the issued invoice or through agreed payment methods.</p>
+                <p><strong>3.2.</strong> The cost of services is calculated <strong>monthly based on 4 (four) classes per month</strong>.</p>
+                <p><strong>3.3. If a calendar month includes 5 (five) classes</strong>, the fifth class automatically carries over as credit to a month with holidays or a month with fewer classes (less than 4).</p>
+                <p><strong>3.4.</strong> Payment must be made no later than the first class of the billing month.</p>
+                <p><strong>3.5.</strong> The Participant may pay for services for several months in advance by agreement with the Service Provider.</p>
+                <h2>4. HOLIDAY MONTHS</h2>
+                <p><strong>4.1.</strong> During holiday months (summer, winter, spring holidays), the number of classes may be reduced in accordance with the Service Provider's calendar plan.</p>
+                <p><strong>4.2.</strong> Classes carried over as credit according to clause 3.3 compensate for missing classes in holiday months.</p>
+                <p><strong>4.3.</strong> The holiday schedule is published by the Service Provider in advance.</p>
+                <h2>5. RIGHTS AND OBLIGATIONS OF THE PARTIES</h2>
+                <h3>5.1. The Service Provider undertakes to:</h3>
+                <ul>
+                    <li>Ensure that classes are conducted according to the schedule</li>
+                    <li>Provide quality recreational services</li>
+                    <li>Promptly inform Participants of schedule changes</li>
+                </ul>
+                <h3>5.2. The Service Provider has the right to:</h3>
+                <ul>
+                    <li>Change the class schedule with advance notice to Participants</li>
+                    <li>Cancel a class for objective reasons with provision of a replacement or recalculation</li>
+                </ul>
+                <h3>5.3. The Participant undertakes to:</h3>
+                <ul>
+                    <li>Make timely payment for services</li>
+                    <li>Follow the rules of conduct in classes</li>
+                    <li>Inform the Service Provider of inability to attend classes</li>
+                </ul>
+                <h3>5.4. The Participant has the right to:</h3>
+                <ul>
+                    <li>Receive services of proper quality</li>
+                    <li>Receive information about the schedule and changes therein</li>
+                </ul>
+                <h2>6. ABSENCES AND RECALCULATION</h2>
+                <p><strong>6.1.</strong> In case of absence from class at the Participant's initiative, no recalculation is made, except in cases of prolonged illness (more than 2 consecutive weeks) upon presentation of a medical certificate.</p>
+                <p><strong>6.2.</strong> If a class is cancelled at the Service Provider's initiative, a recalculation is made or an additional class is provided.</p>
+                <h2>7. LIABILITY OF THE PARTIES</h2>
+                <p><strong>7.1.</strong> For non-performance or improper performance of obligations under this Agreement, the Parties bear responsibility in accordance with Finnish legislation.</p>
+                <p><strong>7.2.</strong> The Service Provider is not liable for damage caused to the Participant as a result of non-compliance with safety rules and instructions.</p>
+                <h2>8. TERMINATION PROCEDURE</h2>
+                <p><strong>8.1.</strong> The Participant has the right to refuse services at any time by notifying the Service Provider at least 7 days in advance.</p>
+                <p><strong>8.2.</strong> In case of early termination of the Agreement at the Participant's initiative, unused paid classes are not refunded, except in cases provided by law.</p>
+                <p><strong>8.3.</strong> The Service Provider has the right to terminate the Agreement unilaterally in case of systematic violation by the Participant of the terms of this Agreement.</p>
+                <h2>9. FINAL PROVISIONS</h2>
+                <p><strong>9.1.</strong> This Agreement comes into force from the moment the Participant accepts the offer and remains in effect until the Parties have fully performed their obligations.</p>
+                <p><strong>9.2.</strong> All disputes and disagreements are resolved through negotiations, and if no agreement is reached – in accordance with Finnish legislation.</p>
+                <p><strong>9.3.</strong> The Service Provider reserves the right to make changes to this Agreement with mandatory notification to Participants at least 14 days before the changes take effect.</p>
+                <h2>10. SERVICE PROVIDER DETAILS</h2>
+                <p><strong>AurinkoLab ry</strong><br>
+                Y-tunnus (Business ID): 3431482-5<br>
+                IBAN: FI72 7997 7998 4286 22<br>
+                Email: info@aurinkolab.fi<br>
+                Phone: +358 45 312 3388</p>
+                <hr style="margin: 2rem 0; border: 1px solid #ccc;">
+                <p style="text-align: center; font-style: italic; margin-top: 2rem;">
+                    By participating in classes and/or paying for services, the Participant confirms that they have read the terms of this Terms of Service Agreement, understand them, and accept them in full.
                 </p>
-                <p class="text-white/70 text-center mb-4">📍InterLang Course</p>
-                <div class="flex items-center justify-between mb-4">
-                    <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 15+</span>
-                </div>
-                <div class="flex justify-center mt-4">
-                    <a href="https://creativelab-helsinki.github.io/" target="_blank" 
-                    class="bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
-                        About course
-                    </a>
-                </div>
-            </div>
-
-            <!-- Course: CinemaTalks (Age 15+) -->
-            <div id="cinematalks" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
-                <div class="flex flex-col items-center text-center mb-4">
-                    <img src="src/ksenia.jpg" alt="Ksenia Peretrukhina" class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
-                    <h4 class="text-white font-bold text-lg">Ksenia Peretrukhina</h4>
-                    <p class="text-white/80 text-sm">Contemporary Artist</p>
-                </div>
-                <div class="border-t border-white/30 my-4 w-full"></div>
-                <h3 class="text-2xl font-bold text-white text-center mb-2">CinemaTalks</h3>
-                <p class="text-white/70 text-center mb-4">
-                    Explore the art of cinema through guided discussions, critical analysis, and interactive sessions. Learn to appreciate filmmaking techniques and storytelling in a collaborative environment.
-                </p>
-                <p class="text-white/70 text-center mb-4">📍organised with InterLang</p>
-                <div class="flex items-center justify-between mb-4">
-                    <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 15+</span>
-                </div>
-                <div class="flex justify-center mt-4">
-                    <a href="https://creativelab-helsinki.github.io/cinematalks" target="_blank" 
-                    class="bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
-                        About Lectures
-                    </a>
-                </div>
-            </div>
-
-         <!-- Course: Horizons Talks -->
-        <div id="horizons" class="glass-card rounded-3xl p-8 hover-lift course-hover flex flex-col justify-between h-full">
-            <!-- Lecturer Info -->
-            <div class="flex flex-col items-center text-center mb-4">
-                <img src="src/frankie.png" alt="Frankie" class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-white/20 bg-white/10 mb-2">
-                <h4 class="text-white font-bold text-lg">Frankie</h4>
-                <p class="text-white/80 text-sm">History of Arts Educator</p>
-            </div>
-
-            <!-- Separator -->
-            <div class="border-t border-white/30 my-4 w-full"></div>
-
-            <!-- Course Title & Description -->
-            <h3 class="text-2xl font-bold text-white text-center mb-2">Horizons Talks: Art History & Discussion</h3>
-            <p class="text-white/70 text-center mb-4">
-                Dive into the world of art history with guided discussions, analysis, and interactive sessions. Explore masterpieces, cultural contexts, and develop a deeper appreciation of art.
-            </p>
-            <p class="text-white/70 text-center mb-4">📍organised with InterLang</p>
-
-            <!-- Age & Price Info -->
-            <div class="flex items-center justify-between mb-4">
-                <span class="glass-card px-3 py-1 rounded-full text-sm text-white">Age 18+</span>
-                <!-- <span class="text-white font-semibold">20€ / lecture</span> -->
-            </div>
-
-            <!-- Buttons -->
-            <div class="flex justify-center mt-4">
-                <a href="https://interlang.fi" target="_blank" 
-                class="bg-gradient-to-r from-blue-400 to-putple-800 text-white py-3 px-6 rounded-2xl font-semibold hover:shadow-lg transition-all text-center">
-                    About Lectures
-                </a>
             </div>
         </div>
-
-        </div> <!-- End of grid -->
-        </div> <!-- End of max-w-7xl container -->
-        </section> <!-- End of Courses Section -->
 
 
 
@@ -836,8 +1020,7 @@
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="glass-card rounded-3xl p-8">
                     <h3 class="text-2xl font-bold text-white mb-6">Get in Touch</h3>
-                    
-                    <div class="space-y-6">
+                        <div class="space-y-6">
                         <div class="flex items-start space-x-4">
                             <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-violet-500 rounded-xl flex items-center justify-center flex-shrink-0">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -951,6 +1134,27 @@
         <p class="text-white/50 text-sm">&copy; 2025 AurinkoLab Espoo. All rights reserved.</p>
     </div>
     </footer>
+
+    <!-- Terms Modal -->
+        <script>
+        function openTermsModal() {
+            const modal = document.getElementById('termsModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeTermsModal() {
+            const modal = document.getElementById('termsModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function closeTermsModalOnOutside(event) {
+            if (event.target.id === 'termsModal') {
+                closeTermsModal();
+            }
+        }
+    </script>
 
 
     <script>
