@@ -615,76 +615,143 @@
 
 
 
+        <!-- Modal -->
         <div id="termsModal" class="terms-modal" onclick="closeTermsModalOnOutside(event)">
-            <div class="terms-modal-content">
+            <div class="terms-modal-content" onclick="event.stopPropagation()">
                 <button class="terms-close-btn" onclick="closeTermsModal()">&times;</button>
-
                 <h1>TERMS OF SERVICE AGREEMENT</h1>
                 <h2 style="text-align: center; color: #66b0db; margin-bottom: 2rem;">Recreational Services Provision</h2>
+                
                 <p style="text-align: center; font-weight: bold;">AurinkoLab ry<br>Helsinki, Finland</p>
+                
                 <hr style="margin: 2rem 0; border: 1px solid #ccc;">
+                
                 <h2>1. GENERAL PROVISIONS</h2>
+                
                 <p><strong>1.1.</strong> This Terms of Service Agreement (hereinafter referred to as the "Agreement") is an official public offer by the non-profit organization <strong>AurinkoLab ry</strong> (hereinafter referred to as the "Service Provider") to enter into an agreement for the provision of recreational services on the terms set forth below.</p>
+                
                 <p><strong>1.2.</strong> Acceptance of this offer is the Participant's attendance of classes and/or payment for the Service Provider's services.</p>
+                
                 <p><strong>1.3.</strong> A Participant (hereinafter referred to as the "Participant") is an individual who has accepted the terms of this Agreement by performing the actions specified in clause 1.2.</p>
+                
                 <p><strong>1.4. By attending classes, the Participant automatically agrees to all terms of this Agreement.</strong></p>
+                
                 <h2>2. SUBJECT OF THE AGREEMENT</h2>
+                
                 <p><strong>2.1.</strong> The Service Provider undertakes to provide the Participant with recreational services in the form of group/individual classes (clubs, workshops, sections, etc.), and the Participant undertakes to pay for these services in the manner and on the terms provided by this Agreement.</p>
+                
                 <p><strong>2.2.</strong> The specific list of services, class schedule, and pricing are determined by the Service Provider and published on the organization's website/informational materials.</p>
+                
                 <h2>3. PAYMENT TERMS</h2>
-                <p><strong>3.1.</strong> Payment for services is made <strong>by prepayment method</strong> based on the issued invoice or through agreed payment methods.</p>
-                <p><strong>3.2.</strong> The cost of services is calculated <strong>monthly based on 4 (four) classes per month</strong>.</p>
-                <p><strong>3.3. If a calendar month includes 5 (five) classes</strong>, the fifth class automatically carries over as credit to a month with holidays or a month with fewer classes (less than 4).</p>
-                <p><strong>3.4.</strong> Payment must be made no later than the first class of the billing month.</p>
-                <p><strong>3.5.</strong> The Participant may pay for services for several months in advance by agreement with the Service Provider.</p>
+                
+                <h3>3.1. Regular Monthly Courses</h3>
+                
+                <p><strong>3.1.1.</strong> Payment for services is made <strong>by prepayment method</strong> based on the issued invoice or through agreed payment methods.</p>
+                
+                <p><strong>3.1.2.</strong> The cost of services is calculated <strong>monthly based on 4 (four) classes per month</strong>.</p>
+                
+                <p><strong>3.1.3. If a calendar month includes 5 (five) classes</strong>, the fifth class automatically carries over as credit to a month with holidays or a month with fewer classes (less than 4).</p>
+                
+                <p><strong>3.1.4.</strong> Payment must be made no later than the first class of the billing month.</p>
+                
+                <p><strong>3.1.5.</strong> The Participant may pay for services for several months in advance by agreement with the Service Provider.</p>
+                
+                <h3>3.2. Workshop Packages (STEMLab, Family Math Club)</h3>
+                
+                <p><strong>3.2.1.</strong> Workshop packages are purchased as a set of 4 (four) workshops and are valid for <strong>2 (two) months from the date of purchase</strong>.</p>
+                
+                <p><strong>3.2.2.</strong> Payment for workshop packages is made in full by prepayment method before attending the first workshop.</p>
+                
+                <p><strong>3.2.3.</strong> The Participant can attend workshops according to the published schedule within the validity period of the package.</p>
+                
+                <p><strong>3.2.4.</strong> Unused workshops from the package expire after 2 months from the purchase date and are not refunded or carried over to the next period.</p>
+                
+                <p><strong>3.2.5.</strong> If all 4 workshops are completed before the expiration of the 2-month period, a new package must be purchased to continue attendance.</p>
+                
                 <h2>4. HOLIDAY MONTHS</h2>
+                
                 <p><strong>4.1.</strong> During holiday months (summer, winter, spring holidays), the number of classes may be reduced in accordance with the Service Provider's calendar plan.</p>
+                
                 <p><strong>4.2.</strong> Classes carried over as credit according to clause 3.3 compensate for missing classes in holiday months.</p>
+                
                 <p><strong>4.3.</strong> The holiday schedule is published by the Service Provider in advance.</p>
+                
                 <h2>5. RIGHTS AND OBLIGATIONS OF THE PARTIES</h2>
+                
                 <h3>5.1. The Service Provider undertakes to:</h3>
                 <ul>
                     <li>Ensure that classes are conducted according to the schedule</li>
                     <li>Provide quality recreational services</li>
                     <li>Promptly inform Participants of schedule changes</li>
                 </ul>
+                
                 <h3>5.2. The Service Provider has the right to:</h3>
                 <ul>
                     <li>Change the class schedule with advance notice to Participants</li>
                     <li>Cancel a class for objective reasons with provision of a replacement or recalculation</li>
                 </ul>
+                
                 <h3>5.3. The Participant undertakes to:</h3>
                 <ul>
                     <li>Make timely payment for services</li>
                     <li>Follow the rules of conduct in classes</li>
                     <li>Inform the Service Provider of inability to attend classes</li>
                 </ul>
+                
                 <h3>5.4. The Participant has the right to:</h3>
                 <ul>
                     <li>Receive services of proper quality</li>
                     <li>Receive information about the schedule and changes therein</li>
                 </ul>
+                
                 <h2>6. ABSENCES AND RECALCULATION</h2>
-                <p><strong>6.1.</strong> In case of absence from class at the Participant's initiative, no recalculation is made, except in cases of prolonged illness (more than 2 consecutive weeks) upon presentation of a medical certificate.</p>
-                <p><strong>6.2.</strong> If a class is cancelled at the Service Provider's initiative, a recalculation is made or an additional class is provided.</p>
+                
+                <h3>6.1. Regular Monthly Courses</h3>
+                
+                <p><strong>6.1.1.</strong> In case of absence from class at the Participant's initiative, no recalculation is made, except in cases of prolonged illness (more than 2 consecutive weeks) upon presentation of a medical certificate.</p>
+                
+                <p><strong>6.1.2.</strong> If a class is cancelled at the Service Provider's initiative, a recalculation is made or an additional class is provided.</p>
+                
+                <h3>6.2. Workshop Packages (STEMLab, Family Math Club)</h3>
+                
+                <p><strong>6.2.1.</strong> In case of absence from a workshop at the Participant's initiative, the missed workshop counts toward the package total and is not refunded or rescheduled.</p>
+                
+                <p><strong>6.2.2.</strong> If a workshop is cancelled at the Service Provider's initiative, the workshop does not count toward the package total, and the Participant can attend a replacement workshop within the package validity period.</p>
+                
+                <p><strong>6.2.3.</strong> The 2-month validity period of workshop packages is not extended due to Participant absences.</p>
+                
                 <h2>7. LIABILITY OF THE PARTIES</h2>
+                
                 <p><strong>7.1.</strong> For non-performance or improper performance of obligations under this Agreement, the Parties bear responsibility in accordance with Finnish legislation.</p>
+                
                 <p><strong>7.2.</strong> The Service Provider is not liable for damage caused to the Participant as a result of non-compliance with safety rules and instructions.</p>
+                
                 <h2>8. TERMINATION PROCEDURE</h2>
+                
                 <p><strong>8.1.</strong> The Participant has the right to refuse services at any time by notifying the Service Provider at least 7 days in advance.</p>
+                
                 <p><strong>8.2.</strong> In case of early termination of the Agreement at the Participant's initiative, unused paid classes are not refunded, except in cases provided by law.</p>
+                
                 <p><strong>8.3.</strong> The Service Provider has the right to terminate the Agreement unilaterally in case of systematic violation by the Participant of the terms of this Agreement.</p>
+                
                 <h2>9. FINAL PROVISIONS</h2>
+                
                 <p><strong>9.1.</strong> This Agreement comes into force from the moment the Participant accepts the offer and remains in effect until the Parties have fully performed their obligations.</p>
+                
                 <p><strong>9.2.</strong> All disputes and disagreements are resolved through negotiations, and if no agreement is reached – in accordance with Finnish legislation.</p>
+                
                 <p><strong>9.3.</strong> The Service Provider reserves the right to make changes to this Agreement with mandatory notification to Participants at least 14 days before the changes take effect.</p>
+                
                 <h2>10. SERVICE PROVIDER DETAILS</h2>
+                
                 <p><strong>AurinkoLab ry</strong><br>
                 Y-tunnus (Business ID): 3431482-5<br>
                 IBAN: FI72 7997 7998 4286 22<br>
                 Email: info@aurinkolab.fi<br>
                 Phone: +358 45 312 3388</p>
+                
                 <hr style="margin: 2rem 0; border: 1px solid #ccc;">
+                
                 <p style="text-align: center; font-style: italic; margin-top: 2rem;">
                     By participating in classes and/or paying for services, the Participant confirms that they have read the terms of this Terms of Service Agreement, understand them, and accept them in full.
                 </p>
