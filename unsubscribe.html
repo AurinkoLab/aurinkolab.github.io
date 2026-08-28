@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Unsubscribe — AurinkoLab Espoo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F4F2EA;
+            color: #3A3831;
+        }
+        .heading-font { font-family: 'Space Grotesk', sans-serif; }
+
+        input, textarea {
+            background-color: transparent !important;
+            border: 1px solid #D8D3C4 !important;
+            color: #3A3831 !important;
+        }
+        input::placeholder, textarea::placeholder { color: #A39E8F !important; }
+        input:focus, textarea:focus {
+            border-color: #3A3831 !important;
+            outline: none;
+            box-shadow: none !important;
+        }
+        input[type="radio"] { accent-color: #3A3831; }
+        /* Honeypot — hidden from people, visible to bots */
+        .gotcha { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#EBE7D9] selection:text-[#3A3831] min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="border-b border-[#D8D3C4]">
+        <div class="max-w-3xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="https://espoo.aurinkolab.fi" class="flex items-center space-x-3">
+                <div class="w-11 h-11 bg-[#EBE7D9] rounded-xl border border-[#D8D3C4] flex items-center justify-center font-bold text-[#3A3831] text-2xl">A</div>
+                <span class="heading-font font-bold text-2xl tracking-tight text-[#3A3831]">Aurinko<span class="font-normal">Lab</span>
+                <span class="block text-[8px] tracking-[.3em] text-[#5C594E] uppercase -mt-1">Espoo • Courses</span></span>
+            </a>
+            <a href="https://espoo.aurinkolab.fi" class="text-sm font-semibold text-[#5C594E] hover:text-[#3A3831] transition-colors">Back to site</a>
+        </div>
+    </header>
+
+    <main class="flex-1 px-6 py-16">
+        <div class="max-w-xl mx-auto">
+
+            <!-- FORM STATE -->
+            <div id="form-state">
+                <h1 class="heading-font text-4xl md:text-5xl font-extrabold text-[#3A3831] tracking-tight mb-4">Unsubscribe</h1>
+                <p class="text-[#5C594E] leading-relaxed mb-10">
+                    Sorry to see you go. Enter the address you receive our emails at and we&rsquo;ll take it off the list within a few days.
+                </p>
+
+                <!-- =========================================================
+                     SWAP THE FORM ID BELOW.
+                     Create a new form at formspree.io and paste its endpoint here.
+                     To reuse your existing registration form instead, use:
+                       https://formspree.io/f/xwleoqdd
+                     (works immediately, but mixes unsubscribes into your
+                      registration submissions — a separate form is tidier)
+                     ========================================================= -->
+                <form id="unsub-form" action="https://formspree.io/f/xwleoqdd" method="POST" class="space-y-8">
+
+                    <input type="hidden" name="_subject" value="Unsubscribe request — AurinkoLab">
+                    <input type="text" name="_gotcha" class="gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                    <div>
+                        <label for="email" class="block text-[#5C594E] text-sm font-bold mb-2">Email address</label>
+                        <input type="email" id="email" name="email" required autocomplete="email"
+                               class="w-full rounded-xl px-4 py-3 transition-colors" placeholder="email@example.com">
+                    </div>
+
+                    <div>
+                        <span class="block text-[#5C594E] text-sm font-bold mb-3">What would you like to stop receiving?</span>
+                        <div class="space-y-3 bg-[#EBE7D9] border border-[#D8D3C4] rounded-xl p-5">
+                            <label class="flex items-start gap-3 cursor-pointer">
+                                <input type="radio" name="scope" value="Newsletters and announcements only" checked class="mt-1 w-4 h-4 flex-shrink-0">
+                                <span class="text-sm text-[#3A3831] leading-relaxed">
+                                    <strong>Newsletters and announcements</strong><br>
+                                    <span class="text-[#5C594E]">You&rsquo;ll still get practical messages about courses your child is enrolled in — schedule changes, cancellations, invoices.</span>
+                                </span>
+                            </label>
+                            <div class="border-t border-[#D8D3C4]/70"></div>
+                            <label class="flex items-start gap-3 cursor-pointer">
+                                <input type="radio" name="scope" value="ALL emails, including course notices" class="mt-1 w-4 h-4 flex-shrink-0">
+                                <span class="text-sm text-[#3A3831] leading-relaxed">
+                                    <strong>Everything</strong><br>
+                                    <span class="text-[#5C594E]">Including notices about classes your child attends. We won&rsquo;t email you at all.</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="reason" class="block text-[#5C594E] text-sm font-bold mb-2">Anything we could do better? <span class="font-normal text-[#827D70]">(optional)</span></label>
+                        <textarea id="reason" name="reason" rows="3" class="w-full rounded-xl px-4 py-3 transition-colors" placeholder="Too many emails, not relevant, my child finished the course..."></textarea>
+                    </div>
+
+                    <div>
+                        <button type="submit" id="submit-btn"
+                                class="w-full bg-[#EBE7D9] hover:bg-[#D8D3C4] border border-[#D8D3C4] text-[#3A3831] font-bold py-4 rounded-xl transition-all disabled:opacity-50 disabled:cursor-wait">
+                            Unsubscribe
+                        </button>
+                        <p id="error-msg" class="hidden mt-4 text-sm text-[#3A3831] bg-[#EBE7D9] border border-[#D8D3C4] rounded-xl px-4 py-3"></p>
+                    </div>
+                </form>
+
+                <p class="text-xs text-[#827D70] leading-relaxed mt-8">
+                    You can also write to <a href="mailto:info@aurinkolab.fi" class="underline hover:text-[#3A3831]">info@aurinkolab.fi</a> and we&rsquo;ll do it for you.
+                    We keep your address on a suppression list so we don&rsquo;t email you again by mistake.
+                </p>
+            </div>
+
+            <!-- SUCCESS STATE -->
+            <div id="success-state" class="hidden text-center py-8">
+                <div class="w-16 h-16 mx-auto bg-[#EBE7D9] border border-[#D8D3C4] rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-[#3A3831]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h1 class="heading-font text-4xl font-extrabold text-[#3A3831] tracking-tight mb-4">Request received</h1>
+                <p class="text-[#5C594E] leading-relaxed mb-10 max-w-md mx-auto">
+                    We&rsquo;ll remove <strong id="success-email" class="text-[#3A3831]"></strong> within a few days. If anything arrives after that, reply to it and we&rsquo;ll sort it out.
+                </p>
+                <a href="https://espoo.aurinkolab.fi"
+                   class="inline-block bg-transparent border border-[#3A3831] text-[#3A3831] hover:bg-[#3A3831] hover:text-[#F4F2EA] font-bold px-8 py-4 rounded-xl transition-all">
+                    Back to AurinkoLab
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-[#D8D3C4] py-8 px-6">
+        <div class="max-w-3xl mx-auto text-center text-xs text-[#827D70] leading-relaxed">
+            AurinkoLab ry · Vanhan-Mankkaan kuja 2, 02180 Espoo, Finland<br>
+            <a href="mailto:info@aurinkolab.fi" class="hover:text-[#3A3831] transition">info@aurinkolab.fi</a>
+            ·
+            <a href="tel:+358453123388" class="hover:text-[#3A3831] transition">+358 45 312 3388</a>
+        </div>
+    </footer>
+
+    <script>
+        // Prefill the email field from ?email= so the link in the newsletter
+        // can carry the address across. Falls back to an empty field.
+        const params = new URLSearchParams(window.location.search);
+        const prefill = params.get('email');
+        if (prefill) document.getElementById('email').value = prefill;
+
+        const form = document.getElementById('unsub-form');
+        const btn = document.getElementById('submit-btn');
+        const errorMsg = document.getElementById('error-msg');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorMsg.classList.add('hidden');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    document.getElementById('success-email').textContent = document.getElementById('email').value;
+                    document.getElementById('form-state').classList.add('hidden');
+                    document.getElementById('success-state').classList.remove('hidden');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (err) {
+                errorMsg.textContent = "That didn't go through. Please email info@aurinkolab.fi and we'll remove you manually.";
+                errorMsg.classList.remove('hidden');
+                btn.disabled = false;
+                btn.textContent = 'Unsubscribe';
+            }
+        });
+    </script>
+</body>
+</html>
