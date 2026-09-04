@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Makasiini key — taking it and bringing it back</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap&subset=cyrillic,latin" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBFAF7;
+    --ink:#17251E;
+    --spruce:#2F4A3C;
+    --moss:#6E7C74;
+    --sun:#F5B921;
+    --sun-soft:#FDF3D6;
+    --rule:#DDD9D0;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    margin:0;
+    background:var(--moss);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",-apple-system,Segoe UI,system-ui,sans-serif;
+    font-size:10.5pt;
+    line-height:1.45;
+  }
+
+  .sheet{
+    width:210mm;
+    min-height:297mm;
+    margin:12mm auto;
+    padding:14mm 14mm 12mm;
+    background:var(--paper);
+    box-shadow:0 2mm 8mm rgba(0,0,0,.25);
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    border-bottom:2.5pt solid var(--ink);
+    padding-bottom:5mm;
+    margin-bottom:7mm;
+  }
+
+  h1{
+    font-family:Unbounded,"IBM Plex Sans",sans-serif;
+    font-weight:700;
+    font-size:23pt;
+    line-height:1.05;
+    letter-spacing:-.02em;
+    margin:0 0 3mm;
+  }
+
+  h1 .sun{
+    background:linear-gradient(to top,var(--sun) 38%,transparent 38%);
+    padding:0 .12em;
+  }
+
+  .premise{
+    margin:0;
+    max-width:150mm;
+    font-size:11pt;
+    color:var(--spruce);
+  }
+
+  /* ---------- columns ---------- */
+  .cols{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9mm;
+    flex:1;
+  }
+
+  .col + .col{
+    border-left:.6pt solid var(--rule);
+    padding-left:9mm;
+  }
+
+  h2{
+    font-family:Unbounded,"IBM Plex Sans",sans-serif;
+    font-weight:500;
+    font-size:14pt;
+    letter-spacing:-.01em;
+    margin:0 0 1.5mm;
+  }
+
+  .when{
+    margin:0 0 5mm;
+    font-size:9.5pt;
+    color:var(--moss);
+  }
+
+  ol{
+    list-style:none;
+    margin:0;
+    padding:0;
+    counter-reset:step;
+  }
+
+  li{
+    counter-increment:step;
+    position:relative;
+    padding-left:9mm;
+    margin-bottom:4.5mm;
+  }
+
+  li::before{
+    content:counter(step);
+    position:absolute;
+    left:0;
+    top:-0.4mm;
+    font-family:Unbounded,sans-serif;
+    font-weight:700;
+    font-size:12pt;
+    color:var(--sun);
+    -webkit-text-stroke:.4pt var(--spruce);
+  }
+
+  li b{
+    font-weight:600;
+    display:block;
+  }
+
+  li span{
+    display:block;
+    color:var(--spruce);
+    font-size:9.5pt;
+  }
+
+  code{
+    font-family:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+    font-weight:500;
+    font-size:9.5pt;
+    background:var(--sun-soft);
+    border-bottom:.8pt solid var(--sun);
+    padding:.05em .3em;
+    white-space:nowrap;
+  }
+
+  .btn{
+    font-weight:600;
+    white-space:nowrap;
+  }
+
+  /* ---------- footer blocks ---------- */
+  .notice{
+    margin-top:6mm;
+    background:var(--spruce);
+    color:var(--paper);
+    padding:4.5mm 5mm;
+    font-size:9.5pt;
+    line-height:1.4;
+  }
+
+  .notice b{color:var(--sun);}
+
+  .trouble{
+    margin-top:6mm;
+    padding-top:4mm;
+    border-top:.6pt solid var(--rule);
+  }
+
+  .trouble h3{
+    font-family:Unbounded,sans-serif;
+    font-weight:500;
+    font-size:10.5pt;
+    margin:0 0 3mm;
+  }
+
+  dl{
+    margin:0;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:1.6mm 4mm;
+    font-size:9.5pt;
+  }
+
+  dt{font-weight:600;}
+
+  dd{margin:0;color:var(--spruce);}
+
+  footer{
+    margin-top:5mm;
+    padding-top:3mm;
+    border-top:2.5pt solid var(--ink);
+    font-size:8.5pt;
+    color:var(--moss);
+    display:flex;
+    justify-content:space-between;
+    gap:6mm;
+  }
+
+  /* ---------- print ---------- */
+  @page{size:A4;margin:0;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{margin:0;box-shadow:none;width:auto;min-height:auto;padding:12mm;}
+    li::before{-webkit-text-stroke:0;color:var(--spruce);}
+    .notice{background:#fff;color:var(--ink);border:1.2pt solid var(--ink);}
+    .notice b{color:var(--ink);text-decoration:underline;}
+  }
+
+  @media (max-width:760px){
+    body{background:var(--paper);}
+    .sheet{width:auto;margin:0;padding:7mm;box-shadow:none;min-height:auto;}
+    .cols{grid-template-columns:1fr;gap:7mm;}
+    .col + .col{border-left:0;padding-left:0;border-top:.6pt solid var(--rule);padding-top:7mm;}
+    h1{font-size:19pt;}
+    dl{grid-template-columns:1fr;gap:.6mm 0;}
+    dd{margin-bottom:2.5mm;}
+    footer{flex-direction:column;gap:1.5mm;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <h1>The <span class="sun">Makasiini</span> key</h1>
+    <p class="premise">Ana hands out the key box code to anyone on the list. Take the key whenever you need it, session or no session. What matters is checking in when you arrive and out when you leave. To find out who has it right now, send <code>/key</code>.</p>
+  </header>
+
+  <div class="cols">
+
+    <section class="col">
+      <h2>Taking the key</h2>
+      <p class="when">When you arrive</p>
+      <ol>
+        <li>
+          <b>Send <code>/checkin</code> to Ana</b>
+          <span>Works at any hour. You don&rsquo;t need a booked session for this.</span>
+        </li>
+        <li>
+          <b>Tap the shaded strip in her reply</b>
+          <span>The code sits underneath, so it stays out of notifications on a locked screen.</span>
+        </li>
+        <li>
+          <b>Open the box and take the key</b>
+          <span>The same message tells you where the box is.</span>
+        </li>
+        <li>
+          <b>Close the box and spin the dials</b>
+          <span>A code left standing on the wheels is readable by anyone walking past.</span>
+        </li>
+        <li>
+          <b>Tap <span class="btn">&laquo;I have the key&raquo;</span></b>
+          <span>One tap, and everyone can see the key is with you.</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="col">
+      <h2>Bringing it back</h2>
+      <p class="when">When you leave</p>
+      <ol>
+        <li>
+          <b>Tidy up first</b>
+          <span>Sink empty and clean, ground-floor work table clear.</span>
+        </li>
+        <li>
+          <b>Send <code>/checkout</code></b>
+          <span>Ana walks you through it &mdash; just answer in the chat.</span>
+        </li>
+        <li>
+          <b>Photograph the kitchen and sink</b>
+          <span>Take it on your phone and send it straight to her.</span>
+        </li>
+        <li>
+          <b>Photograph the ground-floor work table</b>
+          <span>Second photo, and the last one.</span>
+        </li>
+        <li>
+          <b>Put the key back, spin the dials</b>
+          <span>Do this before tapping the button, not after, or it gets forgotten.</span>
+        </li>
+        <li>
+          <b>Tap <span class="btn">&laquo;Key is back, leaving&raquo;</span></b>
+          <span>Both photos go to the group chat with the time on them.</span>
+        </li>
+      </ol>
+    </section>
+
+  </div>
+
+  <div class="notice">
+    Ana reminds you about the key <b>10 minutes</b> before your session ends. If there is still no checkout half an hour later, she says so in the group chat &mdash; not to catch anyone out, but so that somebody living nearby can go and try the door.
+  </div>
+
+  <div class="trouble">
+    <h3>When something goes wrong</h3>
+    <dl>
+      <dt>Ana says you have no access</dt>
+      <dd>Your number is in that same message &mdash; forward it to Maria and she can let you in without restarting anything.</dd>
+
+      <dt>The key isn&rsquo;t in the box</dt>
+      <dd>Send <code>/key</code>. She will tell you who has it and since when.</dd>
+
+      <dt>The code doesn&rsquo;t work</dt>
+      <dd>Message Maria. The code changes now and then, and Ana always has the current one.</dd>
+
+      <dt>You forgot to check out</dt>
+      <dd>Send <code>/checkout</code> as soon as you remember. The photos are still wanted, even after the fact.</dd>
+
+      <dt>You left without closing the bot</dt>
+      <dd>No harm done. The key stays logged to you until you tap the return button.</dd>
+    </dl>
+  </div>
+
+  <footer>
+    <span>Don&rsquo;t pass the key box code on to anyone outside this list.</span>
+    <span>Aurinkolab &middot; Mankkaan Makasiini</span>
+  </footer>
+
+</div>
+</body>
+</html>
